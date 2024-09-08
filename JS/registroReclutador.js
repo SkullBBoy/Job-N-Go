@@ -1,5 +1,6 @@
-// Array para almacenar los reclutadores en localStorage
+// Cargar los arrays desde localStorage
 let reclutadores = JSON.parse(localStorage.getItem('reclutadores')) || [];
+let profesionales = JSON.parse(localStorage.getItem('profesionales')) || [];
 
 // Función para mostrar la vista previa de la imagen
 document.getElementById('foto').addEventListener('change', function(event) {
@@ -63,9 +64,10 @@ function validateEmail(email) {
 
 function validateDni(dni) {
     if (!dni) return 'El DNI es obligatorio';
-    if (dni.length < 7 || dni.length > 8 || isNaN(dni)) return 'DNI inválido';
+    if (dni.length !== 8 || isNaN(dni)) return 'El DNI debe tener exactamente 8 dígitos';
     return '';
 }
+
 
 function validateEmpresa(empresa) {
     if (!empresa) return 'La empresa es obligatoria';
@@ -120,9 +122,9 @@ document.getElementById('registroForm').addEventListener('submit', function(even
       return;
   }
 
-  // Verificar si el email o DNI ya están registrados
-  const emailExistente = reclutadores.find(reclutador => reclutador.email === email);
-  const dniExistente = reclutadores.find(reclutador => reclutador.dni === dni);
+  // Verificar si el email o DNI ya están registrados en ambos arrays
+  const emailExistente = [...reclutadores, ...profesionales].find(user => user.email === email);
+  const dniExistente = [...reclutadores, ...profesionales].find(user => user.dni === dni);
 
   if (emailExistente) {
       alert('Este email ya está registrado');
@@ -154,8 +156,5 @@ document.getElementById('registroForm').addEventListener('submit', function(even
   document.getElementById('imagenPrevia').style.display = 'none';
 
   // Redireccionar a otra página (por ejemplo, la página de inicio o perfil)
-  window.location.href = 'ofertasLaborales.html'; // Cambia 'paginaRedireccion.html' por la URL a la que desees redirigir
+  window.location.href = 'login.html'; // Cambia 'login.html' por la URL a la que desees redirigir
 });
-
-
-

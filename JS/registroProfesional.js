@@ -1,3 +1,5 @@
+// Array para almacenar los reclutadores en localStorage
+let reclutadores = JSON.parse(localStorage.getItem('reclutadores')) || [];
 // Array para almacenar los profesionales en localStorage
 let profesionales = JSON.parse(localStorage.getItem('profesionales')) || [];
 
@@ -63,9 +65,10 @@ function validateEmail(email) {
 
 function validateDni(dni) {
     if (!dni) return 'El DNI es obligatorio';
-    if (dni.length < 7 || dni.length > 8 || isNaN(dni)) return 'DNI inválido';
+    if (dni.length !== 8 || isNaN(dni)) return 'El DNI debe tener exactamente 8 dígitos';
     return '';
 }
+
 
 function validateContraseña(contraseña) {
     const contraseñaRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
@@ -119,7 +122,6 @@ function removeExperience(button) {
 }
 
 // Función para registrar un nuevo profesional
-// Función para registrar un nuevo profesional
 document.getElementById('registroForm').addEventListener('submit', function(event) {
   event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
 
@@ -139,15 +141,17 @@ document.getElementById('registroForm').addEventListener('submit', function(even
       return;
   }
 
-  // Verificar si el email o DNI ya están registrados
-  const emailExistente = profesionales.find(profesional => profesional.email === email);
-  const dniExistente = profesionales.find(profesional => profesional.dni === dni);
+  // Verificar si el email o DNI ya están registrados en ambos arrays
+  const emailExistenteEnReclutadores = reclutadores.find(reclutador => reclutador.email === email);
+  const dniExistenteEnReclutadores = reclutadores.find(reclutador => reclutador.dni === dni);
+  const emailExistenteEnProfesionales = profesionales.find(profesional => profesional.email === email);
+  const dniExistenteEnProfesionales = profesionales.find(profesional => profesional.dni === dni);
 
-  if (emailExistente) {
+  if (emailExistenteEnReclutadores || emailExistenteEnProfesionales) {
       alert('Este email ya está registrado');
       return;
   }
-  if (dniExistente) {
+  if (dniExistenteEnReclutadores || dniExistenteEnProfesionales) {
       alert('Este DNI ya está registrado');
       return;
   }
@@ -182,4 +186,7 @@ document.getElementById('registroForm').addEventListener('submit', function(even
 
   // También ocultar la imagen de vista previa si es necesario
   document.getElementById('imagenPrevia').style.display = 'none';
+  
+  // Redireccionar a la página de login
+  window.location.href = 'login.html';
 });

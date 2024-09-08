@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Job n' Go</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <style>
+        .feedback {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+<div id="tituloLogin">
+    <h1>Iniciar Sesión</h1>
+</div>
+
+<div id="Login">
+    <form id="loginForm">
+        <label for="dni">DNI:</label>
+        <input type="text" id="dni" name="dni" placeholder="12345678" required>
+        <span id="dniFeedback" class="feedback"></span><br><br>
+
+        <label for="contraseña">Contraseña:</label>
+        <div class="visible-password">
+            <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña" required>
+            <button type="button" onclick="togglePasswordVisibility('contraseña')">Mostrar</button>
+        </div>
+        <span id="contraseñaFeedback" class="feedback"></span><br><br>
+
+        <button id="botonLogin" type="submit">Iniciar Sesión</button>
+    </form>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <p>©2024 Job 'N Go. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<script src="../JS/login.js"></script>
+</body>
+</html>

@@ -176,6 +176,8 @@ footer {
   padding-bottom: 10px;
 }
 
+
+
 #Registro {
   border-radius: 15px;
   color: white;
@@ -227,8 +229,61 @@ font-size: 20px;
   border-radius: 25px;
 }
 
+/* REGISTRO - REGISTRO - REGISTRO - REGISTRO - REGISTRO - REGISTRO - REGISTRO - REGISTRO - REGISTRO - REGISTRO -  */
+
+#tituloLogin{
+  background-color: rgb(0, 191, 255);
+  border-radius: 100px;
+  color: white;
+  margin-top: 0px;
+  font-size: 20px;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#Login{
+  border-radius: 15px;
+  color: white;
+  margin-top: 70px;
+  font-size: 15px;
+  padding-left: 80px;
+  padding-right: 80px;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+#Login button {
+  background-color: rgb(0, 191, 255); /* Color de fondo verde */
+  color: white; /* Color del texto blanco */
+  padding: 10px 20px; /* Espaciado interno del botón */
+  border: none; /* Elimina el borde por defecto */
+  border-radius: 10px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  transition: background-color 0.3s ease;
+  font-size: 20px;
+  
+}
+
+#Login button:hover {
+  background-color: #009ACD; /* Color de fondo más oscuro en hover */
+}
+
+#botonLogin{
+  margin-top: 30px;
+}
+
+#Login label{
+font-size: 25px;
 
 
+}
 
 
 
