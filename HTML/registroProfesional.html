@@ -6,41 +6,85 @@
     <title>Job n' Go</title>
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="shortcut icon" href="../IMG/iconoPagina.png" type="image/x-icon">
+    <style>
+        .feedback {
+            color: red;
+            font-size: 0.9em;
+        }
+        .visible-password {
+            display: flex;
+            align-items: center;
+        }
+        .visible-password button {
+            margin-left: 10px;
+        }
+        .experiencia-item {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
+
+<div id="tituloRegistroReclutador">
+    <h1>Registro Profesional</h1>
+</div>
+
+<div id="Registro">
     <form id="registroForm">
         <label for="nombre">Nombre Completo:</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required><br><br>
-
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre y Apellido" required>
+        <span id="nombreFeedback" class="feedback"></span><br><br>
+      
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Email" required><br><br>
-
+        <input type="email" id="email" name="email" placeholder="example@domain.com" required>
+        <span id="emailFeedback" class="feedback"></span><br><br>
+      
         <label for="dni">DNI:</label>
-        <input type="text" id="dni" name="dni" placeholder="Número de DNI" required><br><br>
-
+        <input type="text" id="dni" name="dni" placeholder="12345678" required>
+        <span id="dniFeedback" class="feedback"></span><br><br>
+      
         <label for="contraseña">Contraseña:</label>
-        <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña" required><br><br>
-
+        <div class="visible-password">
+            <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña" required>
+            <button type="button" onclick="togglePasswordVisibility('contraseña')">Mostrar</button>
+        </div>
+        <span id="contraseñaFeedback" class="feedback"></span><br>
+      
         <label for="confirmarContraseña">Confirmar Contraseña:</label>
-        <input type="password" id="confirmarContraseña" name="confirmarContraseña" placeholder="Confirmar contraseña" required><br><br>
+        <div class="visible-password">
+            <input type="password" id="confirmarContraseña" name="confirmarContraseña" placeholder="Confirmar" required>
+            <button type="button" onclick="togglePasswordVisibility('confirmarContraseña')">Mostrar</button>
+        </div>
+        <span id="confirmarContraseñaFeedback" class="feedback"></span><br>
 
         <label for="foto">Subir Foto de Perfil:</label>
-        <input type="file" id="foto" name="foto" accept="image/*" required><br><br>
+        <input type="file" id="foto" name="foto" accept="image/*" required><br>
         <div>
-            <img id="imagenPrevia" style="max-width: 100px; max-height: 100px; display: none; border: 1px solid #ddd;">
+            <img id="imagenPrevia" style="max-width: 40px; max-height: 40px; display: none; border: 1px solid #ddd;">
         </div>
+        <br>
 
-        <label for="experiencia">Experiencia Laboral:</label>
-        <textarea id="experiencia" name="experiencia" placeholder="Describe tu experiencia laboral" rows="4" required></textarea><br><br>
+        <!-- Sección para agregar experiencias laborales -->
+        <!-- Sección para agregar experiencias laborales -->
+    <div id="experienciaContainer">
+      <label>Experiencia Laboral (opcional):</label>
+      <div id="experienciaItems"></div>
+      <button type="button" id="agregarExperiencia">Agregar Experiencia</button><br><br>
+      
+    </div>
 
-        <button type="submit">Registrarse</button>
+      
+
+        <button id="botonRegistrarseProfesional" type="submit">Registrarse</button>
     </form>
+</div>
 
-    <footer>
-        <div class="footer-content">
-            <p>©2024 Job 'N Go. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-    <script src="../JS/registroProfesional.js"></script>
+<footer>
+    <div class="footer-content">
+        <p>©2024 Job 'N Go. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<script src="../JS/registroProfesional.js"></script>
 </body>
 </html>

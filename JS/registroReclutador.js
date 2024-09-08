@@ -154,7 +154,7 @@ document.getElementById('registroForm').addEventListener('submit', function(even
   document.getElementById('imagenPrevia').style.display = 'none';
 
   // Redireccionar a otra página (por ejemplo, la página de inicio o perfil)
-  window.location.href = 'paginaRedireccion.html'; // Cambia 'paginaRedireccion.html' por la URL a la que desees redirigir
+  window.location.href = 'ofertasLaborales.html'; // Cambia 'paginaRedireccion.html' por la URL a la que desees redirigir
 });
 
 
