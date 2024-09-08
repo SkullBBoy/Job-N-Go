@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job n' Go</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link  rel="shortcut icon" href="../IMG/iconoPagina.png" type="image/x-icon">
+    <link href="https://unpkg.com/cropperjs/dist/cropper.css" rel="stylesheet">
+<script src="https://unpkg.com/cropperjs/dist/cropper.js"></script>
+
+
+
+
+</head>
+<body>
+
+    <form id="registroForm">
+        <label for="nombre">Nombre Completo:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+      
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+      
+        <label for="dni">DNI:</label>
+        <input type="text" id="dni" name="dni" required><br><br>
+      
+        <label for="contraseña">Contraseña:</label>
+        <input type="password" id="contraseña" name="contraseña" required><br><br>
+      
+        <label for="confirmarContraseña">Confirmar Contraseña:</label>
+        <input type="password" id="confirmarContraseña" name="confirmarContraseña" required><br><br>
+      
+        <label for="profesion">Profesión:</label>
+        <input type="text" id="profesion" name="profesion" required><br><br>
+      
+        <label for="habilidades">Habilidades:</label>
+        <input type="text" id="habilidades" name="habilidades" placeholder="Ejemplo: Python, JavaScript"><br><br>
+      
+        <label for="tipoUsuario">¿Eres reclutador?</label><br>
+        <input type="radio" id="reclutador" name="tipoUsuario" value="reclutador" required>
+        <label for="reclutador">Sí</label><br>
+        <input type="radio" id="aspirante" name="tipoUsuario" value="aspirante" required>
+        <label for="aspirante">No</label><br><br>
+      
+        <label for="foto">Subir Foto de Perfil:</label>
+        <input type="file" id="foto" name="foto" accept="image/*" required><br><br>
+        <div>
+            <img id="imagenPrevia" style="max-width: 150px; max-height: 150px; display: none; border: 1px solid #ddd;">
+          </div>
+        
+        <button type="submit">Registrarse</button>
+      </form>
+      
+      
+      
+
+
+
+
+    
+
+
+
+
+
+    <footer>
+      <div class="footer-content">
+          <p>©2024 Job 'N Go. Todos los derechos reservados.</p>
+         
+      </div>
+  </footer>
+  
+    <script src="../JS/main.js"></script>
+    
+    
+</body>
+</html>
