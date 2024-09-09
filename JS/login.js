@@ -1,3 +1,25 @@
+// Función para inicializar el estado de la sesión
+function inicializarSesion() {
+    // Verificar si la clave 'sesionIniciada' ya existe en localStorage
+    const sesion = JSON.parse(localStorage.getItem('sesionIniciada'));
+    
+    if (sesion && sesion.estado === 'si') {
+        // Si la sesión está iniciada, redirigir a la página correspondiente
+        window.location.href = './HTML/ofertasLaborales.html'; // Cambia 'ofertasLaborales.html' por la URL correcta
+    } else if (!sesion) {
+        // Si no existe, establecer la clave con el valor 'no' y el DNI vacío
+        const nuevaSesion = {
+            estado: 'no',  // No hay sesión iniciada
+            dni: ''        // DNI vacío
+        };
+        localStorage.setItem('sesionIniciada', JSON.stringify(nuevaSesion));
+    }
+}
+
+// Ejecutar la función cuando el contenido del documento esté completamente cargado
+document.addEventListener('DOMContentLoaded', inicializarSesion);
+
+
 // Función para mostrar/ocultar contraseñas
 function togglePasswordVisibility(id) {
     const input = document.getElementById(id);
@@ -26,17 +48,17 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     if (profesional) {
         // Autenticado como profesional
         alert('Inicio de sesión exitoso como profesional');
-        // Establecer la clave de sesión iniciada
-        localStorage.setItem('sesionIniciada', 'si');
+        // Establecer la clave de sesión iniciada con el DNI del profesional
+        localStorage.setItem('sesionIniciada', JSON.stringify({ estado: 'si', dni: profesional.dni }));
         // Redireccionar a la página de perfil del profesional
         window.location.href = 'perfilProfesional.html'; // Cambia 'perfilProfesional.html' por la URL correcta
     } else if (reclutador) {
         // Autenticado como reclutador
         alert('Inicio de sesión exitoso como reclutador');
-        // Establecer la clave de sesión iniciada
-        localStorage.setItem('sesionIniciada', 'si');
+        // Establecer la clave de sesión iniciada con el DNI del reclutador
+        localStorage.setItem('sesionIniciada', JSON.stringify({ estado: 'si', dni: reclutador.dni }));
         // Redireccionar a la página de perfil del reclutador
-        window.location.href = 'perfilReclutador.html'; // Cambia 'perfilReclutador.html' por la URL correcta
+        window.location.href = 'ofertasLaborales.html'; // Cambia 'ofertasLaborales.html' por la URL correcta
     } else {
         // Credenciales incorrectas
         document.getElementById('dniFeedback').textContent = 'DNI o contraseña incorrectos';
