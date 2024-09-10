@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - Job n' Go</title>
+    <link rel="stylesheet" href="../CSS/yo.css">
+    <link rel="shortcut icon" href="../IMG/iconoPagina.png" type="image/x-icon">
+    <script src="../JS/yo.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="yo.html">Yo</a></li>
+            <li><a href="ranking.html">Ranking</a></li>
+            <li><a href="ofertasLaborales.html">Ofertas Laborales</a></li>
+            <li><a href="inscripciones.html">Inscripciones</a></li>
+            <li><a id="cerrarSesion" href="#">Cerrar sesión</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenedor Principal -->
+    <div class="container">
+        
+        <!-- Perfil Profesional -->
+        <div class="profile-section">
+            <h2>Perfil Profesional</h2>
+            <div>
+                <!-- Imagen de perfil -->
+                <img id="fotoPerfil" src="" alt="Foto de perfil" style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%;">
+                <br>
+                <input type="file" id="inputFotoPerfil" accept="image/*">
+            </div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre">
+            
+            <label for="dni">DNI:</label>
+            <p id="dni"></p> <!-- Campo de texto no editable -->
+            
+            <label for="email">Email:</label>
+            <input type="text" id="email">
+            
+            <label for="puntos">Puntos:</label>
+            <p id="puntos"></p> <!-- Campo de texto no editable -->
+            
+            <button id="editarBtn">Guardar Cambios</button>
+        </div>
+        
+
+        <!-- Experiencia Laboral Cargada -->
+        <div class="experience-section">
+            <h2>Experiencia Laboral</h2>
+            <div id="experienciaContainer"></div>
+        </div>
+
+        <!-- Agregar Nueva Experiencia -->
+        <div class="new-experience-section">
+            <h2>Agregar Nueva Experiencia</h2>
+            <label for="empresa">Empresa:</label>
+            <input type="text" id="empresa">
+            
+            <label for="años">Años:</label>
+            <input type="text" id="años">
+            
+            <label for="puesto">Puesto:</label>
+            <input type="text" id="puesto">
+            
+            <button id="agregarExperienciaBtn">Agregar Experiencia</button>
+            
+            <h2>Eliminar Experiencia</h2>
+            <label for="empresaEliminar">Nombre de la Empresa:</label>
+            <input type="text" id="empresaEliminar">
+            
+            <label for="puestoEliminar">Puesto:</label>
+            <input type="text" id="puestoEliminar">
+            
+            <button id="eliminarExperienciaBtn">Eliminar Experiencia</button>
+        </div>
+
+    </div>
+
+    <footer id="footerProyecto">
+        <div class="footer-content">
+            <p>©2024 Job 'N Go. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

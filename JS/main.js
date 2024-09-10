@@ -10,7 +10,8 @@ function inicializarSesion() {
         // Si no existe, establecer la clave con el valor 'no' y el DNI vacío
         const nuevaSesion = {
             estado: 'no',  // No hay sesión iniciada
-            dni: ''        // DNI vacío
+            dni: '',      // DNI vacío
+            rol: ''        // Rol vacío
         };
         localStorage.setItem('sesionIniciada', JSON.stringify(nuevaSesion));
     }
