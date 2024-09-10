@@ -5,7 +5,7 @@ function inicializarSesion() {
     
     if (sesion && sesion.estado === 'si') {
         // Si la sesión está iniciada, redirigir a la página correspondiente
-        window.location.href = './HTML/ofertasLaborales.html'; // Cambia 'paginaPrincipal.html' por la URL correcta
+        window.location.href = 'ofertasLaborales.html'; // 
     } else if (!sesion) {
         // Si no existe, establecer la clave con el valor 'no' y el DNI vacío
         const nuevaSesion = {
@@ -18,11 +18,6 @@ function inicializarSesion() {
 
 // Ejecutar la función cuando el contenido del documento esté completamente cargado
 document.addEventListener('DOMContentLoaded', inicializarSesion);
-
-
-
-
-
 
 // Array para almacenar los reclutadores en localStorage
 let reclutadores = JSON.parse(localStorage.getItem('reclutadores')) || [];
@@ -121,32 +116,6 @@ document.getElementById('confirmarContraseña').addEventListener('input', functi
     this.style.borderColor = error ? 'red' : '';
 });
 
-// Función para agregar un nuevo campo de experiencia
-document.getElementById('agregarExperiencia').addEventListener('click', function() {
-    const container = document.getElementById('experienciaItems');
-    const index = container.children.length;
-    
-    const div = document.createElement('div');
-    div.classList.add('experiencia-item');
-    div.innerHTML = `
-        <label for="empresa${index}">Empresa:</label>
-        <input type="text" id="empresa${index}" name="experiencia[${index}][empresa]" placeholder="Nombre de la Empresa" required>
-        <label for="años${index}">Años:</label>
-        <input type="number" id="años${index}" name="experiencia[${index}][años]" placeholder="Años" required>
-        <label for="puesto${index}">Puesto:</label>
-        <input type="text" id="puesto${index}" name="experiencia[${index}][puesto]" placeholder="Puesto" required>
-        <button type="button" onclick="removeExperience(this)">Eliminar</button>
-        <br>
-    `;
-    container.appendChild(div);
-});
-
-// Función para eliminar un campo de experiencia
-function removeExperience(button) {
-    const container = document.getElementById('experienciaItems');
-    container.removeChild(button.parentElement);
-}
-
 // Función para registrar un nuevo profesional
 document.getElementById('registroForm').addEventListener('submit', function(event) {
   event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
@@ -182,23 +151,13 @@ document.getElementById('registroForm').addEventListener('submit', function(even
       return;
   }
 
-  // Obtener experiencia laboral del formulario (si la hay)
-  const experienciaItems = Array.from(document.querySelectorAll('#experienciaItems > div'));
-  const experiencia = experienciaItems.length > 0 ? experienciaItems.map(div => {
-      return {
-          empresa: div.querySelector('input[name$="[empresa]"]').value,
-          años: parseInt(div.querySelector('input[name$="[años]"]').value),
-          puesto: div.querySelector('input[name$="[puesto]"]').value
-      };
-  }) : [];
-
   // Crear nuevo profesional
   const nuevoProfesional = {
       nombre,
       email,
       dni,
       contraseña,
-      experiencia, // Puede ser un array vacío si no hay experiencia
+      experiencia: [], // Inicializar el campo experiencia como un array vacío
       puntos: 0
   };
 

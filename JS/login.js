@@ -5,7 +5,7 @@ function inicializarSesion() {
     
     if (sesion && sesion.estado === 'si') {
         // Si la sesión está iniciada, redirigir a la página correspondiente
-        window.location.href = './HTML/ofertasLaborales.html'; // Cambia 'ofertasLaborales.html' por la URL correcta
+        window.location.href = 'ofertasLaborales.html'; // Cambia 'ofertasLaborales.html' por la URL correcta
     } else if (!sesion) {
         // Si no existe, establecer la clave con el valor 'no' y el DNI vacío
         const nuevaSesion = {
@@ -51,7 +51,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         // Establecer la clave de sesión iniciada con el DNI del profesional
         localStorage.setItem('sesionIniciada', JSON.stringify({ estado: 'si', dni: profesional.dni }));
         // Redireccionar a la página de perfil del profesional
-        window.location.href = 'perfilProfesional.html'; // Cambia 'perfilProfesional.html' por la URL correcta
+        window.location.href = 'ofertasLaborales.html'; // Cambia 'perfilProfesional.html' por la URL correcta
     } else if (reclutador) {
         // Autenticado como reclutador
         alert('Inicio de sesión exitoso como reclutador');
