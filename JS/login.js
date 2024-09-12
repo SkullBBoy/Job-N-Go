@@ -52,7 +52,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         // Establecer la clave de sesión iniciada con el DNI y el rol de profesional
         localStorage.setItem('sesionIniciada', JSON.stringify({ estado: 'si', dni: profesional.dni, rol: 'profesional' }));
         // Redireccionar a la página de perfil del profesional
-        window.location.href = 'ofertasLaborales.html'; // Cambia 'perfilProfesional.html' por la URL correcta
+        window.location.href = 'yo.html'; // Cambia 'perfilProfesional.html' por la URL correcta
     } else if (reclutador) {
         // Autenticado como reclutador
         alert('Inicio de sesión exitoso como reclutador');
@@ -66,35 +66,5 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         document.getElementById('contraseñaFeedback').textContent = 'DNI o contraseña incorrectos';
     }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

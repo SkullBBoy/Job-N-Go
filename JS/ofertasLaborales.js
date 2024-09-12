@@ -1,109 +1,38 @@
-// Asegúrate de que el contenido del documento esté completamente cargado antes de agregar el evento
 document.addEventListener('DOMContentLoaded', function() {
-    // Seleccionar el botón de cerrar sesión por su ID
     const cerrarSesionBtn = document.getElementById('cerrarSesion');
-
+    
     if (cerrarSesionBtn) {
-        // Agregar el evento de click al botón de cerrar sesión
         cerrarSesionBtn.addEventListener('click', function() {
-            // Actualizar la clave 'sesionIniciada' en localStorage
-            const nuevaSesion = {
-                estado: 'no',  // No hay sesión iniciada
-                dni: '',       // DNI vacío
-                rol: ''        // Rol vacío
-            };
+            const nuevaSesion = { estado: 'no', dni: '', rol: '' };
             localStorage.setItem('sesionIniciada', JSON.stringify(nuevaSesion));
-
-            // Redirigir a la página de login
             window.location.href = 'login.html';
         });
     }
+
+    // Cargar ofertas laborales desde localStorage
+    const ofertas = JSON.parse(localStorage.getItem('ofertasLaborales')) || [];
+    
+    const ofertasListDiv = document.getElementById('ofertas-list');
+    const mensajeNoOfertas = document.getElementById('mensaje-no-ofertas');
+    
+    if (ofertas.length === 0) {
+        mensajeNoOfertas.style.display = 'block';
+        ofertasListDiv.style.display = 'none';
+    } else {
+        mensajeNoOfertas.style.display = 'none';
+        ofertasListDiv.style.display = 'block';
+        
+        // Crear elementos para cada oferta laboral
+        ofertas.forEach(oferta => {
+            const ofertaDiv = document.createElement('div');
+            ofertaDiv.classList.add('oferta-item');
+            ofertaDiv.innerHTML = `
+                <h3>${oferta.puesto}</h3>
+                <p><strong>Empresa:</strong> ${oferta.empresa}</p>
+                <p><strong>Sueldo:</strong> ${oferta.sueldo}</p>
+                <p><strong>Horas:</strong> ${oferta.horas}</p>
+            `;
+            ofertasListDiv.appendChild(ofertaDiv);
+        });
+    }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

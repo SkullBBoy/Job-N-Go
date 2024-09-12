@@ -3,14 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ofertas Laborales - Job n' Go</title>
-    <link rel="stylesheet" href="../CSS/style.css">
+    <title>Ranking de Profesionales - Job n' Go</title>
+    <link rel="stylesheet" href="../CSS/ranking.css">
     <link rel="shortcut icon" href="../IMG/iconoPagina.png" type="image/x-icon">
-    <script src="../JS/ofertasLaborales.js"></script>
 </head>
 <body>
-
-  
     <nav class="navbar">
         <ul>
             <li><a href="yo.html">Yo</a></li>
@@ -18,25 +15,21 @@
             <li><a href="ofertasLaborales.html">Ofertas Laborales</a></li>
             <li><a href="inscripciones.html">Inscripciones</a></li>
             <li><a id="cerrarSesion" href="#">Cerrar sesión</a></li>
-
         </ul>
     </nav>
 
+    <div class="ranking-container">
+        <div class="user-info">
+            <!-- Div del usuario logueado, su foto, nombre, posición y puntos -->
+            <div id="user-details"></div>
+        </div>
 
-  
-    
-
-
-
-
-
-
-
-
-
-
-    
-
+        <div class="ranking-list">
+            <!-- Div donde aparecerá el ranking de profesionales -->
+            <h2>Ranking de Profesionales</h2>
+            <div id="ranking"></div>
+        </div>
+    </div>
 
     <footer id="footerProyecto">
         <div class="footer-content">
@@ -44,7 +37,6 @@
         </div>
     </footer>
 
-    
-
+    <script src="../JS/ranking.js"></script>
 </body>
 </html>

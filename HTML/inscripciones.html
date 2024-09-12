@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ofertas Laborales - Job n' Go</title>
-    <link rel="stylesheet" href="../CSS/style.css">
+    <title>Inscripciones - Job n' Go</title>
+    <link rel="stylesheet" href="../CSS/inscripciones.css">
     <link rel="shortcut icon" href="../IMG/iconoPagina.png" type="image/x-icon">
-    <script src="../JS/ofertasLaborales.js"></script>
 </head>
 <body>
 
@@ -18,15 +17,22 @@
             <li><a href="ofertasLaborales.html">Ofertas Laborales</a></li>
             <li><a href="inscripciones.html">Inscripciones</a></li>
             <li><a id="cerrarSesion" href="#">Cerrar sesión</a></li>
-
         </ul>
     </nav>
 
+    <!-- Contenido principal: Inscripciones -->
+    <div id="inscripciones-container" class="inscripciones-container">
+        <h2>Mis Inscripciones</h2>
 
-    <!-- Contenido principal -->
-    
+        <h3>Aprobadas</h3>
+        <div id="aprobadas" class="inscripcion-detalle"></div>
 
+        <h3>Pendientes</h3>
+        <div id="pendientes" class="inscripcion-detalle"></div>
 
+        <h3>Rechazadas</h3>
+        <div id="rechazadas" class="inscripcion-detalle"></div>
+    </div>
 
     <!-- Footer -->
     <footer id="footerProyecto">
@@ -35,7 +41,6 @@
         </div>
     </footer>
 
-    
-
+    <script src="../JS/inscripciones.js"></script>
 </body>
 </html>

@@ -85,7 +85,7 @@ footer {
   display: flex;
   justify-content: space-between;
   width: 80%;
-  margin: 50px auto;
+  margin: 20px auto;
   gap: 20px;
   flex-wrap: nowrap; /* Evita el wrap para mantener los divs en una sola línea */
 }

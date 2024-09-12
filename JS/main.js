@@ -5,7 +5,7 @@ function inicializarSesion() {
     
     if (sesion && sesion.estado === 'si') {
         // Si la sesión está iniciada, redirigir a la página correspondiente
-        window.location.href = './HTML/ofertasLaborales.html'; // Cambia 'paginaPrincipal.html' por la URL correcta
+        window.location.href = './HTML/yo.html'; // Cambia 'paginaPrincipal.html' por la URL correcta
     } else if (!sesion) {
         // Si no existe, establecer la clave con el valor 'no' y el DNI vacío
         const nuevaSesion = {

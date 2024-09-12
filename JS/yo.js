@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('dni').textContent = profesional.dni; // Mostrar DNI
             document.getElementById('email').value = profesional.email;
             document.getElementById('puntos').textContent = profesional.puntos; // Mostrar Puntos
+            document.getElementById('telefono').value = profesional.telefono; // Mostrar Teléfono
             mostrarExperiencia(profesional.experiencia);
 
             // Mostrar la foto de perfil
@@ -54,21 +55,35 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
 
-            // Función para editar solo el nombre y email con verificación
+            // Función para editar solo el nombre, email y teléfono con verificación
             document.getElementById('editarBtn').addEventListener('click', function() {
                 const nuevoNombre = document.getElementById('nombre').value.trim();
                 const nuevoEmail = document.getElementById('email').value.trim();
+                const nuevoTelefono = document.getElementById('telefono').value.trim();
 
-                // Verificar si el nuevo email ya existe en los arrays de profesionales o reclutadores
+                // Verificar si el teléfono es válido
+                const telefonoValido = /^\d{10}$/.test(nuevoTelefono);
+
+                if (!telefonoValido) {
+                    alert('El teléfono debe contener exactamente 10 dígitos numéricos.');
+                    return;
+                }
+
+                // Verificar si el nuevo email y teléfono ya existen en los arrays de profesionales o reclutadores
                 const emailExisteEnProfesionales = profesionales.some(p => p.email === nuevoEmail && p.dni !== profesional.dni);
                 const emailExisteEnReclutadores = reclutadores.some(r => r.email === nuevoEmail);
+                const telefonoExisteEnProfesionales = profesionales.some(p => p.telefono === nuevoTelefono && p.dni !== profesional.dni);
+                const telefonoExisteEnReclutadores = reclutadores.some(r => r.telefono === nuevoTelefono);
 
                 if (emailExisteEnProfesionales || emailExisteEnReclutadores) {
                     alert('El email ya está registrado en otro usuario.');
+                } else if (telefonoExisteEnProfesionales || telefonoExisteEnReclutadores) {
+                    alert('El teléfono ya está registrado en otro usuario.');
                 } else {
-                    // Si el email es único, actualizar los datos
+                    // Si el email y el teléfono son únicos, actualizar los datos
                     profesional.nombre = nuevoNombre;
                     profesional.email = nuevoEmail;
+                    profesional.telefono = nuevoTelefono;
 
                     localStorage.setItem('profesionales', JSON.stringify(profesionales));
                     alert('Información actualizada correctamente.');
@@ -103,6 +118,15 @@ document.addEventListener('DOMContentLoaded', function() {
                         localStorage.setItem('profesionales', JSON.stringify(profesionales));
                         mostrarExperiencia(profesional.experiencia);
                         alert('Experiencia laboral añadida correctamente.');
+                    }
+
+                    // Verificar si el usuario ya ha recibido los 15 puntos por agregar experiencia
+                    if (!profesional.puntosExperienciaOtorgados) {
+                        profesional.puntos += 50;  // Sumar 50 puntos
+                        profesional.puntosExperienciaOtorgados = true;  // Marcar que ya se le otorgaron los puntos
+                        localStorage.setItem('profesionales', JSON.stringify(profesionales));
+                        document.getElementById('puntos').textContent = profesional.puntos;  // Actualizar los puntos en la interfaz
+                        alert('¡Has ganado 50 puntos por agregar tu primera experiencia laboral!');
                     }
                 } else {
                     alert('Por favor, complete todos los campos de experiencia laboral.');
@@ -143,7 +167,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     alert('Por favor, complete todos los campos para eliminar experiencia laboral.');
                 }
             });
+        } else {
+            alert('No se encontró el perfil del profesional.');
+            window.location.href = 'login.html';
         }
+    } else {
+        alert('No hay sesión iniciada o el usuario no es profesional.');
+        window.location.href = 'login.html';
     }
 });
 
@@ -160,3 +190,36 @@ function mostrarExperiencia(experiencia) {
         });
     });
 }
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const sesionIniciada = JSON.parse(localStorage.getItem('sesionIniciada')); // Obtener los datos de la sesión iniciada
+    const dniUsuario = sesionIniciada.dni;
+    const profesionales = JSON.parse(localStorage.getItem('profesionales')) || [];
+    
+    // Buscar al profesional actual en el array de profesionales
+    const profesional = profesionales.find(prof => prof.dni === dniUsuario);
+
+    if (profesional) {
+        // Obtener la fecha de la última conexión guardada en localStorage
+        const ultimaConexion = localStorage.getItem('ultimaConexion_' + dniUsuario);
+        const hoy = new Date().toLocaleDateString();
+
+        // Verificar si es un nuevo día
+        if (ultimaConexion !== hoy) {
+            // Es un nuevo día, sumar 10 puntos
+            profesional.puntos += 10;
+
+            // Guardar la nueva fecha de conexión
+            localStorage.setItem('ultimaConexion_' + dniUsuario, hoy);
+
+            // Actualizar el array de profesionales con los nuevos puntos
+            localStorage.setItem('profesionales', JSON.stringify(profesionales));
+
+            // Mostrar alerta de puntos ganados
+            alert('¡Felicidades! Has ganado 10 puntos por conectarte hoy.');
+
+            console.log(`Recibiste 10 puntos por conectarte hoy`);
+        }
+    }
+});
