@@ -191,35 +191,3 @@ function mostrarExperiencia(experiencia) {
     });
 }
 
-
-document.addEventListener('DOMContentLoaded', function () {
-    const sesionIniciada = JSON.parse(localStorage.getItem('sesionIniciada')); // Obtener los datos de la sesión iniciada
-    const dniUsuario = sesionIniciada.dni;
-    const profesionales = JSON.parse(localStorage.getItem('profesionales')) || [];
-    
-    // Buscar al profesional actual en el array de profesionales
-    const profesional = profesionales.find(prof => prof.dni === dniUsuario);
-
-    if (profesional) {
-        // Obtener la fecha de la última conexión guardada en localStorage
-        const ultimaConexion = localStorage.getItem('ultimaConexion_' + dniUsuario);
-        const hoy = new Date().toLocaleDateString();
-
-        // Verificar si es un nuevo día
-        if (ultimaConexion !== hoy) {
-            // Es un nuevo día, sumar 10 puntos
-            profesional.puntos += 10;
-
-            // Guardar la nueva fecha de conexión
-            localStorage.setItem('ultimaConexion_' + dniUsuario, hoy);
-
-            // Actualizar el array de profesionales con los nuevos puntos
-            localStorage.setItem('profesionales', JSON.stringify(profesionales));
-
-            // Mostrar alerta de puntos ganados
-            alert('¡Felicidades! Has ganado 10 puntos por conectarte hoy.');
-
-            console.log(`Recibiste 10 puntos por conectarte hoy`);
-        }
-    }
-});

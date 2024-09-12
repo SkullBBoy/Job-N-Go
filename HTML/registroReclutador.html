@@ -6,8 +6,6 @@
     <title>Registro Reclutador - Job n' Go</title>
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="shortcut icon" href="../IMG/iconoPagina.png" type="image/x-icon">
-    
-
     <style>
         .feedback {
             color: red;
@@ -23,57 +21,54 @@
     </style>
 </head>
 <body>
-
-
-<div id="tituloRegistroReclutador">
-  <h1>Registro Reclutador</h1>
-</div>
-
-
-<div id="Registro">
-  <form id="registroForm">
-    <label for="nombre">Nombre Completo:</label>
-    <input type="text" id="nombre" name="nombre" placeholder="Nombre y Apellido" required>
-    <span id="nombreFeedback" class="feedback"></span><br><br>
-  
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" placeholder="example@domain.com" required>
-    <span id="emailFeedback" class="feedback"></span><br><br>
-  
-    <label for="dni">DNI:</label>
-    <input type="text" id="dni" name="dni" placeholder="12345678" required>
-    <span id="dniFeedback" class="feedback"></span><br><br>
-  
-    <label for="empresa">Empresa:</label>
-    <input type="text" id="empresa" name="empresa" placeholder="Nombre de la Empresa" required>
-    <span id="empresaFeedback" class="feedback"></span><br><br>
-  
-    <label for="contraseña">Contraseña:</label>
-    <div class="visible-password">
-        <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña" required>
-        <button type="button" onclick="togglePasswordVisibility('contraseña')">Mostrar</button>
+    <div id="tituloRegistroReclutador">
+        <h1>Registro Reclutador</h1>
     </div>
-    <span id="contraseñaFeedback" class="feedback"></span><br>
-  
-    <label for="confirmarContraseña">Confirmar Contraseña:</label>
-    <div class="visible-password">
-        <input type="password" id="confirmarContraseña" name="confirmarContraseña" placeholder="Confirmar " required>
-        <button type="button" onclick="togglePasswordVisibility('confirmarContraseña')">Mostrar</button>
-    </div>
-    <span id="confirmarContraseñaFeedback" class="feedback"></span><br>
-  
-    <label for="foto">Subir Foto de Perfil:</label>
-    <input type="file" id="foto" name="foto" accept="image/*" required><br>
-    <div>
-        <img id="imagenPrevia" style="max-width: 40px; max-height: 40px; display: none; border: 1px solid #ddd;">
-    </div>
-    <br>
-    <button id="botonRegistrarse" type="submit">Registrarse</button>
-  </form>
-  <a href="registro.html" class="boton" id="botonVolver">Volver</a>
-</div>
 
-
+    <div id="Registro">
+        <form id="registroForm">
+            <label for="nombre">Nombre Completo:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre y Apellido" required>
+            <span id="nombreFeedback" class="feedback"></span><br><br>
+          
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="example@domain.com" required>
+            <span id="emailFeedback" class="feedback"></span><br><br>
+          
+            <label for="dni">DNI:</label>
+            <input type="text" id="dni" name="dni" placeholder="12345678" required>
+            <span id="dniFeedback" class="feedback"></span><br><br>
+          
+            <label for="empresa">Empresa:</label>
+            <input type="text" id="empresa" name="empresa" placeholder="Nombre de la Empresa" required>
+            <span id="empresaFeedback" class="feedback"></span><br><br>
+          
+            <label for="contraseña">Contraseña:</label>
+            <div class="visible-password">
+                <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña" required>
+                <button type="button" onclick="togglePasswordVisibility('contraseña')">Mostrar</button>
+            </div>
+            <span id="contraseñaFeedback" class="feedback"></span><br>
+          
+            <label for="confirmarContraseña">Confirmar Contraseña:</label>
+            <div class="visible-password">
+                <input type="password" id="confirmarContraseña" name="confirmarContraseña" placeholder="Confirmar " required>
+                <button type="button" onclick="togglePasswordVisibility('confirmarContraseña')">Mostrar</button>
+            </div>
+            <span id="confirmarContraseñaFeedback" class="feedback"></span><br>
+          
+            <label for="foto">Subir Foto de Perfil:</label>
+            <input type="file" id="foto" name="foto" accept="image/*" required><br>
+            <div>
+                <img id="imagenPrevia" style="max-width: 40px; max-height: 40px; display: none; border: 1px solid #ddd;">
+            </div>
+            <br>
+            <!-- Campo oculto para almacenar la URL base64 de la foto -->
+            <input type="hidden" id="fotoBase64" name="fotoBase64">
+            <button id="botonRegistrarse" type="submit">Registrarse</button>
+        </form>
+        <a href="registro.html" class="boton" id="botonVolver">Volver</a>
+    </div>
 
     <footer>
         <div class="footer-content">

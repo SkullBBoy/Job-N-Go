@@ -19,10 +19,6 @@ function inicializarSesion() {
 // Ejecutar la función cuando el contenido del documento esté completamente cargado
 document.addEventListener('DOMContentLoaded', inicializarSesion);
 
-
-
-
-
 // Cargar los arrays desde localStorage
 let reclutadores = JSON.parse(localStorage.getItem('reclutadores')) || [];
 let profesionales = JSON.parse(localStorage.getItem('profesionales')) || [];
@@ -49,6 +45,8 @@ document.getElementById('foto').addEventListener('change', function(event) {
             const img = document.getElementById('imagenPrevia');
             img.src = e.target.result;
             img.style.display = 'block';
+            // Guardar la URL base64 en un atributo del objeto del reclutador
+            document.getElementById('fotoBase64').value = e.target.result;
         }
         reader.readAsDataURL(file);
     }
@@ -93,7 +91,6 @@ function validateDni(dni) {
     return '';
 }
 
-
 function validateEmpresa(empresa) {
     if (!empresa) return 'La empresa es obligatoria';
     if (empresa.length < 3) return '(mínimo 3 caracteres)';
@@ -128,58 +125,60 @@ document.getElementById('confirmarContraseña').addEventListener('input', functi
 
 // Función para registrar un nuevo reclutador
 document.getElementById('registroForm').addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+    event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
 
-  const nombre = document.getElementById('nombre').value;
-  const email = document.getElementById('email').value;
-  const dni = document.getElementById('dni').value;
-  const empresa = document.getElementById('empresa').value;
-  const contraseña = document.getElementById('contraseña').value;
-  const confirmarContraseña = document.getElementById('confirmarContraseña').value;
+    const nombre = document.getElementById('nombre').value;
+    const email = document.getElementById('email').value;
+    const dni = document.getElementById('dni').value;
+    const empresa = document.getElementById('empresa').value;
+    const contraseña = document.getElementById('contraseña').value;
+    const confirmarContraseña = document.getElementById('confirmarContraseña').value;
+    const fotoBase64 = document.getElementById('fotoBase64').value;
 
-  // Validaciones de ejemplo
-  if (contraseña !== confirmarContraseña) {
-      alert('Las contraseñas no coinciden');
-      return;
-  }
-  if (!nombre || !email || !dni || !empresa || !contraseña) {
-      alert('Por favor, completa todos los campos del formulario');
-      return;
-  }
+    // Validaciones de ejemplo
+    if (contraseña !== confirmarContraseña) {
+        alert('Las contraseñas no coinciden');
+        return;
+    }
+    if (!nombre || !email || !dni || !empresa || !contraseña) {
+        alert('Por favor, completa todos los campos del formulario');
+        return;
+    }
 
-  // Verificar si el email o DNI ya están registrados en ambos arrays
-  const emailExistente = [...reclutadores, ...profesionales].find(user => user.email === email);
-  const dniExistente = [...reclutadores, ...profesionales].find(user => user.dni === dni);
+    // Verificar si el email o DNI ya están registrados en ambos arrays
+    const emailExistente = [...reclutadores, ...profesionales].find(user => user.email === email);
+    const dniExistente = [...reclutadores, ...profesionales].find(user => user.dni === dni);
 
-  if (emailExistente) {
-      alert('Este email ya está registrado');
-      return;
-  }
-  if (dniExistente) {
-      alert('Este DNI ya está registrado');
-      return;
-  }
+    if (emailExistente) {
+        alert('Este email ya está registrado');
+        return;
+    }
+    if (dniExistente) {
+        alert('Este DNI ya está registrado');
+        return;
+    }
 
-  // Crear nuevo reclutador
-  const nuevoReclutador = {
-      nombre,
-      email,
-      dni,
-      empresa,
-      contraseña
-  };
+    // Crear nuevo reclutador
+    const nuevoReclutador = {
+        nombre,
+        email,
+        dni,
+        empresa,
+        contraseña,
+        foto: fotoBase64 // Agregar la foto en base64 al objeto del reclutador
+    };
 
-  reclutadores.push(nuevoReclutador);
-  localStorage.setItem('reclutadores', JSON.stringify(reclutadores));
+    reclutadores.push(nuevoReclutador);
+    localStorage.setItem('reclutadores', JSON.stringify(reclutadores));
 
-  alert('Reclutador registrado exitosamente');
+    alert('Reclutador registrado exitosamente');
 
-  // Vaciar el formulario después del registro exitoso
-  document.getElementById('registroForm').reset();
+    // Vaciar el formulario después del registro exitoso
+    document.getElementById('registroForm').reset();
 
-  // También ocultar la imagen de vista previa si es necesario
-  document.getElementById('imagenPrevia').style.display = 'none';
+    // También ocultar la imagen de vista previa si es necesario
+    document.getElementById('imagenPrevia').style.display = 'none';
 
-  // Redireccionar a otra página (por ejemplo, la página de inicio o perfil)
-  window.location.href = 'login.html'; // Cambia 'login.html' por la URL a la que desees redirigir
+    // Redireccionar a otra página (por ejemplo, la página de inicio o perfil)
+    window.location.href = 'login.html'; // Cambia 'login.html' por la URL a la que desees redirigir
 });

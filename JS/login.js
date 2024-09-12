@@ -59,7 +59,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         // Establecer la clave de sesión iniciada con el DNI y el rol de reclutador
         localStorage.setItem('sesionIniciada', JSON.stringify({ estado: 'si', dni: reclutador.dni, rol: 'reclutador' }));
         // Redireccionar a la página de perfil del reclutador
-        window.location.href = 'ofertasLaborales.html'; // Cambia 'ofertasLaborales.html' por la URL correcta
+        window.location.href = 'yoReclutador.html'; // Cambia 'ofertasLaborales.html' por la URL correcta
     } else {
         // Credenciales incorrectas
         document.getElementById('dniFeedback').textContent = 'DNI o contraseña incorrectos';
