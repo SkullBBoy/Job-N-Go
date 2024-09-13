@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ranking de Profesionales - Job n' Go</title>
+    <title>Gestión Ofertas Laborales - Job n' Go</title>
     <link rel="stylesheet" href="../CSS/gestionOfertasLaborales.css">
     <link rel="shortcut icon" href="../IMG/iconoPagina.png" type="image/x-icon">
 </head>
@@ -18,9 +18,65 @@
         </ul>
     </nav>
 
-    
+    <div class="container">
+        <!-- Crear oferta laboral -->
+        <div class="create-offer">
+            <h2>Crear Oferta</h2>
+            <form id="crearOfertaForm">
+                <label for="nombre">Nombre del puesto:</label>
+                <input type="text" id="nombre" required>
 
-    
+                <label for="sueldo">Sueldo:</label>
+                <input type="number" id="sueldo" required>
+
+                <label for="horas">Horas por semana:</label>
+                <input type="number" id="horas" required>
+
+                <label for="descripcion">Descripción:</label>
+                <textarea id="descripcion" required></textarea>
+
+                <label for="fechaLimite">Fecha límite (opcional):</label>
+                <input type="date" id="fechaLimite">
+
+                <button type="submit">Crear Oferta</button>
+            </form>
+        </div>
+
+        <!-- Visualizar ofertas laborales -->
+        <div class="view-offers">
+            <h2>Ofertas Creadas</h2>
+            <div id="ofertasCreadas"></div>
+        </div>
+
+        <!-- Editar o eliminar ofertas laborales -->
+        <div class="edit-offer">
+            <h2>Editar/Eliminar Oferta</h2>
+            <div id="editarEliminarOferta">
+                <p>Seleccione una oferta para editar o eliminar</p>
+                <select id="ofertasSelect"></select>
+                <button id="eliminarOfertaBtn">Eliminar</button>
+
+                <form id="editarOfertaForm" style="display: none;">
+                    <label for="nombreEdit">Nombre del puesto:</label>
+                    <input type="text" id="nombreEdit" required>
+
+                    <label for="sueldoEdit">Sueldo:</label>
+                    <input type="number" id="sueldoEdit" required>
+
+                    <label for="horasEdit">Horas por jornada:</label>
+                    <input type="number" id="horasEdit" required>
+
+                    <label for="descripcionEdit">Descripción:</label>
+                    <textarea id="descripcionEdit" required></textarea>
+
+                    <label for="fechaLimiteEdit">Fecha límite:</label>
+                    <input type="date" id="fechaLimiteEdit">
+
+                    <button type="submit">Guardar Cambios</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <footer id="footerProyecto">
         <div class="footer-content">
