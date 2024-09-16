@@ -5,13 +5,18 @@ function inicializarSesion() {
     
     if (sesion && sesion.estado === 'si') {
         // Si la sesión está iniciada, redirigir a la página correspondiente
-        window.location.href = 'ofertasLaborales.html'; // Cambia 'ofertasLaborales.html' por la URL correcta
+        if (sesion.rol === 'reclutador') {
+            window.location.href = 'yoReclutador.html'; // Cambia 'yoReclutador.html' por la URL correcta
+        } else {
+            window.location.href = 'yo.html'; // Cambia 'yo.html' por la URL correcta
+        }
     } else if (!sesion) {
         // Si no existe, establecer la clave con el valor 'no', DNI vacío, y sin rol
         const nuevaSesion = {
             estado: 'no',  // No hay sesión iniciada
             dni: '',       // DNI vacío
-            rol: ''        // Rol vacío
+            rol: '',       // Rol vacío
+            empresa: ''    // Empresa vacía
         };
         localStorage.setItem('sesionIniciada', JSON.stringify(nuevaSesion));
     }
@@ -50,21 +55,19 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         // Autenticado como profesional
         alert('Inicio de sesión exitoso como profesional');
         // Establecer la clave de sesión iniciada con el DNI y el rol de profesional
-        localStorage.setItem('sesionIniciada', JSON.stringify({ estado: 'si', dni: profesional.dni, rol: 'profesional' }));
+        localStorage.setItem('sesionIniciada', JSON.stringify({ estado: 'si', dni: profesional.dni, rol: 'profesional', empresa: '' }));
         // Redireccionar a la página de perfil del profesional
-        window.location.href = 'yo.html'; // Cambia 'perfilProfesional.html' por la URL correcta
+        window.location.href = 'yo.html'; // Cambia 'yo.html' por la URL correcta
     } else if (reclutador) {
         // Autenticado como reclutador
         alert('Inicio de sesión exitoso como reclutador');
-        // Establecer la clave de sesión iniciada con el DNI y el rol de reclutador
-        localStorage.setItem('sesionIniciada', JSON.stringify({ estado: 'si', dni: reclutador.dni, rol: 'reclutador' }));
+        // Establecer la clave de sesión iniciada con el DNI, el rol de reclutador y la empresa
+        localStorage.setItem('sesionIniciada', JSON.stringify({ estado: 'si', dni: reclutador.dni, rol: 'reclutador', empresa: reclutador.empresa }));
         // Redireccionar a la página de perfil del reclutador
-        window.location.href = 'yoReclutador.html'; // Cambia 'ofertasLaborales.html' por la URL correcta
+        window.location.href = 'yoReclutador.html'; // Cambia 'yoReclutador.html' por la URL correcta
     } else {
         // Credenciales incorrectas
         document.getElementById('dniFeedback').textContent = 'DNI o contraseña incorrectos';
         document.getElementById('contraseñaFeedback').textContent = 'DNI o contraseña incorrectos';
     }
 });
-
-

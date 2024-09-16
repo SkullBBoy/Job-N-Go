@@ -1,142 +1,163 @@
-
 /* INDEX - INDEX INDEX - INDEX INDEX - INDEX INDEX - INDEX INDEX - INDEX INDEX - INDEX INDEX - INDEX INDEX - INDEX INDEX - INDEX */
 body {
-    background-image: url('../IMG/background.jpg');
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column; 
-  }
-  
-/*   h1{
-    font-size: 40px;
-    margin: 0px; 
-  } */
-  
-  footer {
-    background-color: rgb(0, 191, 255);
-    color: white;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 21px; /* Aumenta la altura para darle más espacio al texto */
-    font-size: 13px; /* Aumenta el tamaño del texto */
-    text-align: center; /* Centra el texto horizontalmente */
-    line-height: 0px; /* Alinea el texto verticalmente dentro del footer */
-  }
-  
-  .footer-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  
-  }
-  
-  /* INDEX - INDEX INDEX - INDEX INDEX - INDEX INDEX - INDEX INDEX - INDEX INDEX - INDEX INDEX - INDEX INDEX - INDEX INDEX - INDEX */
-  
-  /* Estilos para la navbar - Estilos para la navbar - Estilos para la navbar - Estilos para la navbar - Estilos para la navbar - */
-  .navbar {
-    background-color: #333;
-    overflow: hidden;
-    border-radius: 25px;
-  }
-  
-  .navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .navbar ul li {
-    padding: 14px 20px;
-  }
-  
-  .navbar ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    display: block;
-  }
-  
-  .navbar ul li a:hover {
-    background-color: #575757;
-    border-radius: 4px;
-  }
-  
-  #footerProyecto{
-    background-color: #333;
-  }
-  /* Estilos para la navbar - Estilos para la navbar - Estilos para la navbar - Estilos para la navbar - Estilos para la navbar - Estilos para la navbar - Estilos para la navbar - */
-  
-
-  
-  #ofertas-container {
-    width: 80%;
-    margin: 20px auto;
-    text-align: center;
+  background-image: url('../IMG/background.jpg');
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; 
 }
 
-.mensaje-no-ofertas {
-    background-color: #333;
-    color: #fff;
-    border-radius: 12px;
-    padding: 20px;
-    margin: 20px 0;
-    font-size: 18px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+footer {
+  background-color: rgb(0, 191, 255);
+  color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 21px; /* Aumenta la altura para darle más espacio al texto */
+  font-size: 13px; /* Aumenta el tamaño del texto */
+  text-align: center; /* Centra el texto horizontalmente */
+  line-height: 0px; /* Alinea el texto verticalmente dentro del footer */
 }
 
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Estilos para la navbar */
+.navbar {
+  background-color: #333;
+  overflow: hidden;
+  border-radius: 25px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar ul li {
+  padding: 14px 20px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  display: block;
+}
+
+.navbar ul li a:hover {
+  background-color: #575757;
+  border-radius: 4px;
+}
+
+#footerProyecto{
+  background-color: #333;
+}
+
+/* Estilos para el contenedor de ofertas laborales */
+#ofertas-container {
+  padding: 10px 20px 20px; /* Espacio superior para evitar solapamiento con la navbar */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Mensaje cuando no hay ofertas */
+#mensaje-no-ofertas {
+  display: none;
+  text-align: center;
+  font-size: 1.5em;
+  color: #ff4d4d;
+  margin-bottom: 20px;
+}
+
+/* Contenedor de ofertas */
+/* Contenedor de ofertas */
 #ofertas-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
+/* Elemento de oferta */
 .oferta-item {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin: 10px;
-    padding: 15px;
-    width: 100%;
-    max-width: 600px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #333; /* Fondo oscuro */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada para resaltar */
+  padding: 20px;
+  margin: 10px auto; /* Espacio de 10px alrededor de cada oferta */
+  max-width: 800px;
+  border-left: 5px solid #007bff; /* Barra lateral azul */
+  color: #fff; /* Color de texto blanco */
+  overflow: hidden; /* Evita que el contenido se salga del contenedor */
+  word-wrap: break-word; /* Ajusta las palabras largas en líneas nuevas */
+  white-space: normal; /* Permite que el texto se ajuste a nuevas líneas */
+  text-overflow: ellipsis; /* Agrega puntos suspensivos si el texto se corta */
 }
 
+
+/* Títulos de ofertas */
 .oferta-item h3 {
-    margin: 0;
-    font-size: 24px;
+  margin: 0;
+  color: #fff; /* Color de texto blanco para el título */
+  font-size: 1.5em;
 }
 
+/* Detalles de las ofertas */
 .oferta-item p {
-    margin: 5px 0;
-    font-size: 16px;
+  margin: 10px 0;
+  color: #ddd; /* Color de texto gris claro para mejorar contraste */
+  font-size: 1em;
+  word-wrap: break-word; /* Evita que las palabras largas se desborden */
+  overflow: hidden; /* Evita desbordamiento del contenido */
+  white-space: normal; /* Ajusta el texto a nuevas líneas */
+  text-overflow: ellipsis; /* Puntos suspensivos al final del texto si es muy largo */
 }
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+.oferta-item p strong {
+  color: #fff; /* Color de texto blanco para el texto destacado */
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  #ofertas-container {
+      padding: 80px 10px 20px;
+  }
+
+  .oferta-item {
+      padding: 15px;
+  }
+}
+
+/* Estilo para el botón "Inscribirme" */
+.inscribirme-btn {
+  background-color: #007bff; /* Azul */
+  color: white; /* Texto blanco */
+  border: none; /* Sin bordes */
+  padding: 10px 20px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 16px; /* Tamaño de la fuente */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+  transition: background-color 0.3s ease; /* Animación suave en hover */
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/* Centrar solo el botón */
+.oferta-item .inscribirme-btn {
+  display: block;
+  margin: 10px auto 0; /* Margen superior de 10px y auto en los laterales para centrar */
+}
+
+/* Efecto al pasar el ratón sobre el botón */
+.inscribirme-btn:hover {
+  background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+}
+
+

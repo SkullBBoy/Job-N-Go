@@ -72,39 +72,53 @@ body {
   }
   /* Estilos para la navbar - Estilos para la navbar - Estilos para la navbar - Estilos para la navbar - Estilos para la navbar - Estilos para la navbar - Estilos para la navbar - */
   
-/* Contenedor principal */
+/* Estilos para el contenedor de inscripciones */
 .inscripciones-container {
-    background-color: rgba(51, 51, 51, 0.8);
-    color: white;
-    padding: 20px;
-    border-radius: 12px;
-    margin-top: 20px;
-    width: 80%;
-    max-width: 600px;
-    text-align: center;
+  display: flex;
+  justify-content: space-between; /* Asegura que las columnas estén separadas */
+  width: 80%; /* Ajusta según sea necesario */
+  margin: 20px 0; /* Espacio vertical alrededor del contenedor */
 }
 
-/* Detalle de inscripciones */
-.inscripcion-detalle {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 10px;
+/* Estilos para cada columna */
+.inscripciones-columna {
+  background-color: #333; /* Fondo oscuro para la columna */
+  color: white; /* Color del texto */
+  flex: 1; /* Cada columna toma un espacio igual */
+  margin-right: 10px; /* Espacio a la derecha de cada columna */
+  padding: 15px; /* Espacio interno */
+  border-radius: 5px; /* Bordes redondeados */
+  position: relative; /* Necesario para la línea debajo del título */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra para efecto de profundidad */
 }
 
-.inscripcion p {
-    margin: 5px 0;
-    font-size: 16px;
+/* Eliminar el margen derecho en la última columna */
+.inscripciones-columna:last-child {
+  margin-right: 0; 
 }
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+/* Estilo para el título de cada columna */
+.inscripciones-columna h2 {
+  border-bottom: 2px solid #00BFFF; /* Línea celeste debajo del título */
+  padding-bottom: 5px; /* Espacio entre el texto del título y la línea */
+  margin-bottom: 15px; /* Espacio entre el título y el contenido */
+  text-align: center; /* Centra el título horizontalmente */
+}
+
+/* Estilo para cada inscripción */
+.inscripcion {
+  background-color: #444; /* Fondo ligeramente más claro para las inscripciones */
+  margin-bottom: 15px; /* Espacio entre inscripciones */
+  padding: 10px; /* Espacio interno en cada inscripción */
+  border-radius: 5px; /* Bordes redondeados para inscripciones */
+  border: 1px solid #555; /* Borde sutil alrededor de cada inscripción */
+}
+
+/* Espacio adicional en la última inscripción en cada columna */
+.inscripciones-columna .inscripcion:last-child {
+  margin-bottom: 0; 
+}
+
   
   
   

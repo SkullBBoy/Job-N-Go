@@ -1,10 +1,23 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const cerrarSesionBtn = document.getElementById('cerrarSesion');
+  
     const ofertasCreadasDiv = document.getElementById('ofertasCreadas');
     const ofertasSelect = document.getElementById('ofertasSelect');
     const crearOfertaForm = document.getElementById('crearOfertaForm');
     const editarOfertaForm = document.getElementById('editarOfertaForm');
     const eliminarOfertaBtn = document.getElementById('eliminarOfertaBtn');
+
+    const cerrarSesionBtn = document.getElementById('cerrarSesion');
+
+    if (cerrarSesionBtn) {
+        cerrarSesionBtn.addEventListener('click', function() {
+            const nuevaSesion = { estado: 'no', dni: '', rol: '' };
+            localStorage.setItem('sesionIniciada', JSON.stringify(nuevaSesion));
+            window.location.href = 'login.html';
+        });
+    }
+
+
+
 
     // Datos de sesión (simulación de empresa logueada)
     const obtenerDniReclutadorLogueado = () => {

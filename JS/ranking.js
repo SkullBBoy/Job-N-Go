@@ -2,10 +2,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const cerrarSesionBtn = document.getElementById('cerrarSesion');
     
     if (cerrarSesionBtn) {
-        cerrarSesionBtn.addEventListener('click', function() {
+        cerrarSesionBtn.addEventListener('click', function(event) {
+            event.preventDefault(); // Previene el comportamiento por defecto del enlace
             const nuevaSesion = { estado: 'no', dni: '', rol: '' };
             localStorage.setItem('sesionIniciada', JSON.stringify(nuevaSesion));
-            window.location.href = 'login.html';
+            window.location.href = 'login.html'; // Redirige a la página de login
         });
     }
 
@@ -15,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (sesionIniciada && sesionIniciada.estado === 'si') {
         const dniUsuario = sesionIniciada.dni;
 
-        // Actualizar puntos por conexión diaria
         const profesional = profesionales.find(prof => prof.dni === dniUsuario);
         if (profesional) {
             const ultimaConexion = localStorage.getItem('ultimaConexion_' + dniUsuario);
@@ -29,14 +29,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        // Ordenamos a los profesionales por puntos en orden descendente
         const ranking = profesionales.sort((a, b) => b.puntos - a.puntos);
-
-        // Encontramos al usuario logueado en el ranking
         const usuario = ranking.find(profesional => profesional.dni === dniUsuario);
         const posicionUsuario = ranking.findIndex(profesional => profesional.dni === dniUsuario) + 1;
 
-        // Mostramos la información del usuario logueado
         const userDetailsDiv = document.getElementById('user-details');
         if (usuario) {
             userDetailsDiv.innerHTML = `
@@ -47,9 +43,8 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
         }
 
-        // Mostramos el ranking de profesionales
         const rankingDiv = document.getElementById('ranking');
-        rankingDiv.innerHTML = ''; // Limpiar el ranking antes de volver a agregar elementos
+        rankingDiv.innerHTML = '';
         ranking.forEach((profesional, index) => {
             const posicion = index + 1;
             rankingDiv.innerHTML += `
