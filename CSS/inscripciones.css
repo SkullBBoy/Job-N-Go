@@ -1,0 +1,132 @@
+
+/* INDEX - INDEX INDEX - INDEX INDEX - INDEX INDEX - INDEX INDEX - INDEX INDEX - INDEX INDEX - INDEX INDEX - INDEX INDEX - INDEX */
+body {
+    background-image: url('../IMG/background.jpg');
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+  }
+  
+/*   h1{
+    font-size: 40px;
+    margin: 0px; 
+  } */
+  
+  footer {
+    background-color: rgb(0, 191, 255);
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 21px; /* Aumenta la altura para darle más espacio al texto */
+    font-size: 13px; /* Aumenta el tamaño del texto */
+    text-align: center; /* Centra el texto horizontalmente */
+    line-height: 0px; /* Alinea el texto verticalmente dentro del footer */
+  }
+  
+  .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  
+  }
+  
+  /* INDEX - INDEX INDEX - INDEX INDEX - INDEX INDEX - INDEX INDEX - INDEX INDEX - INDEX INDEX - INDEX INDEX - INDEX INDEX - INDEX */
+  
+  /* Estilos para la navbar - Estilos para la navbar - Estilos para la navbar - Estilos para la navbar - Estilos para la navbar - */
+  .navbar {
+    background-color: #333;
+    overflow: hidden;
+    border-radius: 25px;
+  }
+  
+  .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .navbar ul li {
+    padding: 14px 20px;
+  }
+  
+  .navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    display: block;
+  }
+  
+  .navbar ul li a:hover {
+    background-color: #575757;
+    border-radius: 4px;
+  }
+  
+  #footerProyecto{
+    background-color: #333;
+  }
+  /* Estilos para la navbar - Estilos para la navbar - Estilos para la navbar - Estilos para la navbar - Estilos para la navbar - Estilos para la navbar - Estilos para la navbar - */
+  
+/* Estilos para el contenedor de inscripciones */
+.inscripciones-container {
+  display: flex;
+  justify-content: space-between; /* Asegura que las columnas estén separadas */
+  width: 80%; /* Ajusta según sea necesario */
+  margin: 20px 0; /* Espacio vertical alrededor del contenedor */
+}
+
+/* Estilos para cada columna */
+.inscripciones-columna {
+  background-color: #333; /* Fondo oscuro para la columna */
+  color: white; /* Color del texto */
+  flex: 1; /* Cada columna toma un espacio igual */
+  margin-right: 10px; /* Espacio a la derecha de cada columna */
+  padding: 15px; /* Espacio interno */
+  border-radius: 5px; /* Bordes redondeados */
+  position: relative; /* Necesario para la línea debajo del título */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra para efecto de profundidad */
+}
+
+/* Eliminar el margen derecho en la última columna */
+.inscripciones-columna:last-child {
+  margin-right: 0; 
+}
+
+/* Estilo para el título de cada columna */
+.inscripciones-columna h2 {
+  border-bottom: 2px solid #00BFFF; /* Línea celeste debajo del título */
+  padding-bottom: 5px; /* Espacio entre el texto del título y la línea */
+  margin-bottom: 15px; /* Espacio entre el título y el contenido */
+  text-align: center; /* Centra el título horizontalmente */
+}
+
+/* Estilo para cada inscripción */
+.inscripcion {
+  background-color: #444; /* Fondo ligeramente más claro para las inscripciones */
+  margin-bottom: 15px; /* Espacio entre inscripciones */
+  padding: 10px; /* Espacio interno en cada inscripción */
+  border-radius: 5px; /* Bordes redondeados para inscripciones */
+  border: 1px solid #555; /* Borde sutil alrededor de cada inscripción */
+}
+
+/* Espacio adicional en la última inscripción en cada columna */
+.inscripciones-columna .inscripcion:last-child {
+  margin-bottom: 0; 
+}
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
